@@ -1,0 +1,130 @@
+{
+    "position": "top",
+    "margin": "20 20 0 20",
+    "modules-left": ["hyprland/workspaces", "custom/pacman", "hyprland/language", "keyboard-state"],
+    "modules-center": ["clock", "custom/weather"],
+    "modules-right": ["custom/notification",  "custom/mem", "pulseaudio", "battery", "tray"],
+    "hyprland/workspaces": {},
+    "hyprland/language": {
+        "format": "{} ",
+        "min-length": 5,
+        "tooltip": false
+    },
+    "keyboard-state": {
+        //"numlock": true,
+        "capslock": true,
+        "format": "{name} {icon} ",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "custom/pacman": {
+        "format": "{} ",
+        "interval": 3600,
+        "exec": "yay -Qua | wc -l",
+        "exec-if": "exit 0",
+        "on-click": "foot sh -c 'yay; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
+        "signal": 8,
+        "tooltip": false
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "$HOME/.config/waybar/scripts/wttr.py",
+        "return-type": "json"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a, %d %b, %I:%M %p}"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
+        "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+        "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+        "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+        "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+        "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
+        "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{time}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "reverse-scrolling": 1,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "婢 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["奄", "奔", "墳"]
+        },
+        "on-click": "pavucontrol",
+        "min-length": 13,
+    },
+    "network": {
+        "format-ethernet": "󰈀",
+        "format-wifi": "",
+        "format-disconnected": "󰖪",
+        "format-linked": "󱛅",
+        "format-alt": "󰢭",
+        "format-alt-click": "click-right",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor",
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/mem": {
+        "format": "{} ",
+        "interval": 3,
+        "exec": "free -h | awk '/Mem:/{printf $3}'",
+        "tooltip": false,
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false,
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 0
+    }
+}
