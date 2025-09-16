@@ -13,5 +13,7 @@ config.font_size = 18.0
 config.color_scheme = "Bamboo"
 config.enable_tab_bar = false
 
+config.enable_wayland = false
+
 -- and finally, return the configuration to wezterm
 return config
