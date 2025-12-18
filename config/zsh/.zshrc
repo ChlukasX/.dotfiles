@@ -40,6 +40,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(fzf --zsh)"
 alias vim=nvim
-alias air='~/.air'
-l='ls -lah'
+alias lsa='ls -lah'
+alias lg=lazygit
+alias ld=lazydocker
 . "$HOME/.local/bin/env"
