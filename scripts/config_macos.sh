@@ -7,7 +7,7 @@ update_repo() {
 
 update_repo
 
-ln -sf ~/.dotfiles/config/aerospace/ ~/.config/aerospace
+ln -sf ~/.dotfiles/config/aerospace/.aerospace.toml ~/.aerospace.toml
 ln -sf ~/.dotfiles/config/nvim ~/.config/nvim
 ln -sf ~/.dotfiles/config/wezterm ~/.config/wezterm
 ln -sf ~/.dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
