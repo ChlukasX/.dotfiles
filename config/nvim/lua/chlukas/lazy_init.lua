@@ -15,8 +15,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local is_nixos = vim.loop.fs_stat("/etc/NIXOS") ~= nil
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = "chlukas.plugins",
 	change_detection = { notify = false }
+    lockfile_disable = is_nixos,
 })
