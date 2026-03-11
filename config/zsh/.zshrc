@@ -43,4 +43,8 @@ alias vim=nvim
 alias lsa='ls -lah'
 alias lg=lazygit
 alias ld=lazydocker
-. "$HOME/.local/bin/env"
+#. "$HOME/.local/bin/env"
+export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+export TESTCONTAINERS_HOST_OVERRIDE=127.0.0.1
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export TESTCONTAINERS_RYUK_DISABLED=true
