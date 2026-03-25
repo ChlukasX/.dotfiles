@@ -1,7 +1,5 @@
-# ~/.config/sway/config
-
 ### Variables
-set $mod Mod1
+set $mod Mod4
 set $term wezterm
 set $browser zen-browser
 set $menu wofi --show drun
@@ -9,11 +7,11 @@ set $menu wofi --show drun
 ### Output
 output * bg #282c34 solid_color
 
-### Input — German + English, Caps as Ctrl
+### Input
 input type:keyboard {
-    xkb_layout de,us
+    xkb_layout us,de
     xkb_variant ,
-    xkb_options grp:win_space_toggle,caps:ctrl_modifier
+    xkb_options grp:shifts_toggle,caps:ctrl_modifier
     repeat_delay 300
     repeat_rate 50
 }
@@ -50,7 +48,6 @@ client.urgent             $urgent   $urgent     $bg      $urgent    $urgent
 ### Workspace assignments
 assign [app_id="org.wezfurlong.wezterm"] workspace number 1
 assign [app_id="zen"] workspace number 2
-# Zen browser may use class instead of app_id on some builds:
 assign [class="zen-browser"] workspace number 2
 assign [class="Zen Browser"] workspace number 2
 
@@ -147,16 +144,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-### Status bar — OneDark
+### Status bar
 bar {
     position top
-    status_command while date +'%a %Y-%m-%d %H:%M'; do sleep 5; done
-    colors {
-        statusline $fg
-        background $dark
-        focused_workspace  $accent $accent $bg
-        active_workspace   $border $border $fg
-        inactive_workspace $dark   $dark   $border
-        urgent_workspace   $urgent $urgent $bg
-    }
+    swaybar_command waybar
 }
