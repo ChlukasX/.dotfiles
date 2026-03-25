@@ -1,0 +1,162 @@
+# ~/.config/sway/config
+
+### Variables
+set $mod Mod1
+set $term wezterm
+set $browser zen-browser
+set $menu wofi --show drun
+
+### Output
+output * bg #282c34 solid_color
+
+### Input — German + English, Caps as Ctrl
+input type:keyboard {
+    xkb_layout de,us
+    xkb_variant ,
+    xkb_options grp:win_space_toggle,caps:ctrl_modifier
+    repeat_delay 300
+    repeat_rate 50
+}
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+    dwt enabled
+    scroll_factor 0.5
+}
+
+### Appearance — OneDark
+set $bg      #282c34
+set $fg      #abb2bf
+set $accent  #61afef
+set $urgent  #e06c75
+set $border  #3e4451
+set $dark    #21252b
+
+gaps inner 6
+gaps outer 4
+default_border pixel 2
+smart_borders on
+smart_gaps on
+
+font pango:monospace 10
+
+# client.focused          border    background  text     indicator  child_border
+client.focused            $accent   $accent     $bg      $accent    $accent
+client.unfocused          $border   $dark       $fg      $border    $border
+client.focused_inactive   $border   $bg         $fg      $border    $border
+client.urgent             $urgent   $urgent     $bg      $urgent    $urgent
+
+### Workspace assignments
+assign [app_id="org.wezfurlong.wezterm"] workspace number 1
+assign [app_id="zen"] workspace number 2
+# Zen browser may use class instead of app_id on some builds:
+assign [class="zen-browser"] workspace number 2
+assign [class="Zen Browser"] workspace number 2
+
+### Key bindings
+bindsym $mod+Return exec $term
+bindsym $mod+b      exec $browser
+bindsym $mod+d      exec $menu
+bindsym $mod+Shift+q kill
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag -t warning \
+    -m 'Exit sway?' -B 'Yes' 'swaymsg exit'
+
+# Focus (hjkl + arrow keys for laptop friendliness)
+bindsym $mod+h     focus left
+bindsym $mod+j     focus down
+bindsym $mod+k     focus up
+bindsym $mod+l     focus right
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# Move
+bindsym $mod+Shift+h     move left
+bindsym $mod+Shift+j     move down
+bindsym $mod+Shift+k     move up
+bindsym $mod+Shift+l     move right
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# Layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+v splitv
+bindsym $mod+g splith
+
+# Floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space       focus mode_toggle
+
+# Scratchpad
+bindsym $mod+minus       scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
+### 10 Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+### Laptop media keys
+bindsym XF86AudioRaiseVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@   5%+
+bindsym XF86AudioLowerVolume  exec wpctl set-volume @DEFAULT_AUDIO_SINK@   5%-
+bindsym XF86AudioMute         exec wpctl set-mute   @DEFAULT_AUDIO_SINK@   toggle
+bindsym XF86AudioMicMute      exec wpctl set-mute   @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym Print                 exec grim ~/Pictures/screenshot-$(date +%F_%T).png
+
+### Resize mode
+mode "resize" {
+    bindsym h resize shrink width  20px
+    bindsym j resize grow   height 20px
+    bindsym k resize shrink height 20px
+    bindsym l resize grow   width  20px
+    bindsym Left  resize shrink width  20px
+    bindsym Down  resize grow   height 20px
+    bindsym Up    resize shrink height 20px
+    bindsym Right resize grow   width  20px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Status bar — OneDark
+bar {
+    position top
+    status_command while date +'%a %Y-%m-%d %H:%M'; do sleep 5; done
+    colors {
+        statusline $fg
+        background $dark
+        focused_workspace  $accent $accent $bg
+        active_workspace   $border $border $fg
+        inactive_workspace $dark   $dark   $border
+        urgent_workspace   $urgent $urgent $bg
+    }
+}
