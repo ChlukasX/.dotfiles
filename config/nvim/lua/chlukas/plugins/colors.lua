@@ -1,13 +1,23 @@
 return {
     {
-        'ribru17/bamboo.nvim',
+        "ribru17/bamboo.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            require('bamboo').setup {
+            require("bamboo").setup({
                 -- optional configuration here
-            }
-            require('bamboo').load()
+            })
+            require("bamboo").load()
+        end,
+    },
+    { "ellisonleao/gruvbox.nvim", 
+        priority = 1000, 
+        config = function()
+            require("gruvbox").setup({
+                -- optional configuration here
+                contrast = "",
+            })
+            require("gruvbox").load()
         end,
     },
     {
@@ -15,12 +25,11 @@ return {
         priority = 1000,
         enable = false,
         config = function()
-            require('onedark').setup {
-                style = 'dark'
-            }
+            require("onedark").setup({
+                style = "dark",
+            })
             -- Enable theme
-            require('onedark').load()
-        end
+            require("onedark").load()
+        end,
     },
 }
-
