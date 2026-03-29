@@ -17,8 +17,41 @@ window#waybar {
   padding: 0 10px;
 }
 
+#tray {
+    padding: 8 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #e06c75;
+}
+
 #language {
     padding: 10 10px;
+}
+
+#mpris {
+  padding: 0 10px;
+  color: #98c379;
+}
+
+#mpris.paused {
+  color: #abb2bf;
+}
+
+#mpris.stopped {
+  padding: 0;
+}
+
+#mode {
+  padding: 0 10px;
+  background: #e06c75;
+  color: #282c34;
+  font-weight: bold;
 }
 
 #workspaces button {

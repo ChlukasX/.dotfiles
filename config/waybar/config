@@ -1,13 +1,33 @@
 {
   "layer": "top",
   "position": "top",
-  "modules-left": ["sway/workspaces", "sway/language"],
-  "modules-center": [],
-  "modules-right": [
-    "cpu", "memory", "network",
+  "modules-left": ["sway/workspaces", "sway/language", "sway/mode"],
+  "modules-center": ["mpris"],
+  "modules-right": [ 
+     "cpu", "memory", 
     "backlight", "battery",
-    "pulseaudio", "clock"
+    "pulseaudio", "clock", "tray"
   ],
+  "tray": {
+        "spacing": 8,
+        "icon-size": 18
+    },
+  "mpris": {
+    "format": "{status_icon} {artist} - {title}",
+    "format-paused": "{status_icon} {artist} - {title}",
+    "format-stopped": "",
+    "status-icons": {
+      "playing": "PLAY",
+      "paused":  "PAUSED",
+      "stopped": ""
+    },
+    "max-length": 50,
+    "ellipsis": "...",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "tooltip-format": "{player} — {album}"
+  },
   "cpu": {
     "interval": 2,
     "format": " CPU {usage}%",

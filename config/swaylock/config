@@ -1,0 +1,39 @@
+# Background
+color=21252b
+
+# Indicator size
+indicator-radius=60
+indicator-thickness=8
+indicator-idle-visible
+
+# Idle state (no input)
+inside-color=282c34
+ring-color=3e4451
+line-color=21252b
+text-color=abb2bf
+
+# Typing state
+inside-clear-color=282c34
+ring-clear-color=61afef
+key-hl-color=61afef
+separator-color=00000000
+
+# Verifying password
+inside-ver-color=282c34
+ring-ver-color=e5c07b
+text-ver-color=e5c07b
+
+# Wrong password
+inside-wrong-color=282c34
+ring-wrong-color=e06c75
+text-wrong-color=e06c75
+bs-hl-color=e06c75
+
+# Caps lock
+inside-caps-lock-color=282c34
+ring-caps-lock-color=c678dd
+text-caps-lock-color=c678dd
+
+# Misc
+show-failed-attempts
+font=monospace

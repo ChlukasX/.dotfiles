@@ -85,8 +85,11 @@ link_wm() {
             safe_link "$DOTFILES/config/waybar"  "$CONFIG/waybar"
             ;;
         sway)
-            safe_link "$DOTFILES/config/sway"    "$CONFIG/sway"
-            safe_link "$DOTFILES/config/waybar"  "$CONFIG/waybar"
+            safe_link "$DOTFILES/config/sway"      "$CONFIG/sway"
+            safe_link "$DOTFILES/config/waybar"    "$CONFIG/waybar"
+            safe_link "$DOTFILES/config/swaylock"  "$CONFIG/swaylock"
+            safe_link "$DOTFILES/config/wofi"      "$CONFIG/wofi"
+            safe_link "$DOTFILES/config/dunst"      "$CONFIG/dunst"
             ;;
         *)
             warn "No WM specified. Skipping WM config. Usage: $0 [i3|hypr|sway]"
