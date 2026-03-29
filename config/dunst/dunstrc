@@ -1,0 +1,92 @@
+[global]
+    ### Display
+    monitor = 0
+    follow = none
+
+    ### Geometry
+    width = 320
+    height = (0, 300)
+    origin = top-right
+    offset = 12x12
+    scale = 0
+    notification_limit = 5
+
+    ### Progress bar
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+
+    ### Appearance
+    transparency = 0
+    separator_height = 1
+    padding = 10
+    horizontal_padding = 12
+    text_icon_padding = 10
+    frame_width = 1
+    frame_color = "#3e4451"
+    gap_size = 4
+    separator_color = frame
+    sort = yes
+    corner_radius = 0
+
+    ### Text
+    font = monospace 10
+    line_height = 4
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    ### Icons
+    icon_theme = Papirus-Dark
+    enable_recursive_icon_lookup = true
+    icon_position = left
+    min_icon_size = 20
+    max_icon_size = 32
+
+    ### History
+    sticky_history = yes
+    history_length = 20
+
+    ### Misc
+    dmenu = /usr/bin/wofi --dmenu
+    browser = /usr/bin/zen-browser
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    ignore_dbusclose = false
+
+    ### Wayland
+    force_xwayland = false
+    layer = overlay
+
+    ### Mouse
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#21252b"
+    foreground = "#abb2bf"
+    frame_color = "#3e4451"
+    timeout = 4
+
+[urgency_normal]
+    background = "#21252b"
+    foreground = "#abb2bf"
+    frame_color = "#61afef"
+    timeout = 6
+
+[urgency_critical]
+    background = "#21252b"
+    foreground = "#e06c75"
+    frame_color = "#e06c75"
+    timeout = 0
