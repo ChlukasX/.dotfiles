@@ -1,13 +1,13 @@
 ### Variables
 set $mod Mod4
 set $term wezterm
-set $browser zen-browser
+set $browser firefox
 set $menu wofi --show drun
 
 exec_always dunst
 exec_always nm-applet --indicator
 ### Output
-output * bg #282c34 solid_color
+output * bg "~/.dotfiles/wp/FW 13 Pro Wallpaper 1.png" fill
 
 ### Input
 input type:keyboard {
@@ -49,9 +49,15 @@ client.urgent             $urgent   $urgent     $bg      $urgent    $urgent
 
 ### Workspace assignments
 assign [app_id="org.wezfurlong.wezterm"] workspace number 1
+
+assign [app_id="firefox"] workspace number 2
 assign [app_id="zen"] workspace number 2
 assign [class="zen-browser"] workspace number 2
 assign [class="Zen Browser"] workspace number 2
+
+assign [class="discord"] workspace number 8
+
+assign [class="spotify"] workspace number 9
 
 ### Key bindings
 bindsym $mod+Return exec $term

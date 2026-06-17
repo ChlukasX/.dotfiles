@@ -65,7 +65,8 @@ window#waybar {
   min-width: 24px;
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.active {
   background: #61afef;
   color: #282c34;
 }
