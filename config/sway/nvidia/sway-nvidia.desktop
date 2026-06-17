@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Sway (NVIDIA)
+Comment=wlroots-based compositor with NVIDIA GPU support
+Exec=sway-nvidia
+Type=Application

@@ -25,6 +25,13 @@ input type:touchpad {
     scroll_factor 0.5
 }
 
+input type:pointer {
+    accel_profile adaptive
+    pointer_accel 0.0
+    natural_scroll disabled
+    scroll_factor 0.5
+}
+
 ### Appearance — OneDark
 set $bg      #282c34
 set $fg      #abb2bf

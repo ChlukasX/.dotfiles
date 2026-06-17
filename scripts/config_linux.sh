@@ -75,7 +75,10 @@ update_repo() {
 }
 
 link_wm() {
-    case "$1" in
+    local wm="$1"
+    local nvidia="$2"
+
+    case "$wm" in
         i3)
             safe_link "$DOTFILES/config/i3"      "$CONFIG/i3"
             safe_link "$DOTFILES/config/i3status" "$CONFIG/i3status"
@@ -90,9 +93,22 @@ link_wm() {
             safe_link "$DOTFILES/config/swaylock"  "$CONFIG/swaylock"
             safe_link "$DOTFILES/config/wofi"      "$CONFIG/wofi"
             safe_link "$DOTFILES/config/dunst"      "$CONFIG/dunst"
+
+            if [ "$nvidia" = true ]; then
+                info "Installing sway-nvidia launcher to /bin for greeter PATH access (sudo)"
+                sudo cp "$DOTFILES/config/sway/nvidia/start.sh" \
+                    "/bin/sway-nvidia"
+                sudo chmod +x "/bin/sway-nvidia"
+                info "Installing sway-nvidia desktop entry to /usr/share/wayland-sessions (sudo)"
+                sudo cp "$DOTFILES/config/sway/nvidia/sway-nvidia.desktop" \
+                    /usr/share/wayland-sessions/sway-nvidia.desktop
+                info "Removing leftover local session entry"
+                rm -f "$HOME/.local/share/wayland-sessions/sway-nvidia.desktop"
+                info "NVIDIA Sway session added"
+            fi
             ;;
         *)
-            warn "No WM specified. Skipping WM config. Usage: $0 [i3|hypr|sway]"
+            warn "No WM specified. Skipping WM config. Usage: $0 [i3|hypr|sway] [--nvidia]"
             ;;
     esac
 }
@@ -107,9 +123,13 @@ link_configs() {
 }
 
 main() {
+    local wm="${1:-}"
+    local nvidia=false
+    [ "${2:-}" = "--nvidia" ] && nvidia=true
+
     update_repo
     install_packages
-    link_wm "${1:-}"
+    link_wm "$wm" "$nvidia"
     link_configs
     info "Done!"
 }
