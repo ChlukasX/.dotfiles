@@ -2,6 +2,8 @@ after-startup-command = []
 
 start-at-login = true
 
+config-version = 2
+
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
@@ -89,6 +91,10 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
     if.app-id = "app.zen-browser.zen"
+    run = ["move-node-to-workspace 2"]
+
+[[on-window-detected]]
+    if.app-id = "app.mozilla.firefox"
     run = ["move-node-to-workspace 2"]
 
 [[on-window-detected]]
