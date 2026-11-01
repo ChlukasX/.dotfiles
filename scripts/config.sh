@@ -204,7 +204,7 @@ install_brew_packages() {
     local brewfile="$DOTFILES/Brewfile"
     if [ -f "$brewfile" ]; then
         info "Installing packages from Brewfile..."
-        brew bundle install --file="$brewfile" --no-lock
+        brew bundle install --file="$brewfile"
     else
         warn "No Brewfile found at $brewfile — skipping."
         warn "Run: brew bundle dump --file=$brewfile"
