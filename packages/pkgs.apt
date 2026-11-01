@@ -1,0 +1,43 @@
+# Shell & CLI
+zsh
+git
+fzf
+ripgrep
+fd-find          # binary is `fdfind`
+htop
+wget
+unzip
+tmux
+
+# Dev
+neovim
+gcc
+make
+golang-go
+nodejs
+npm
+python3
+python3-pip
+python3-venv
+docker.io
+docker-compose
+
+# Terminal & fonts
+fonts-noto
+fonts-noto-color-emoji
+
+# Apps
+firefox          # `firefox-esr` on Debian
+thunderbird
+telegram-desktop
+vlc
+
+# Not in default repos — install manually / via vendor repo:
+#   tree-sitter-cli  (npm i -g tree-sitter-cli)
+#   uv               (curl -LsSf https://astral.sh/uv/install.sh | sh)
+#   typst            (cargo / GitHub release)
+#   lazygit, lazydocker (GitHub releases)
+#   claude-code      (npm i -g @anthropic-ai/claude-code)
+#   wezterm          (apt.fury.io/wez repo)
+#   meslo nerd font  (nerdfonts.com)
+#   brave, discord, obsidian, zotero, zed, proton-vpn (vendor .deb / repos)

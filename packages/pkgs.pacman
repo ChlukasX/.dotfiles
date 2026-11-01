@@ -1,0 +1,46 @@
+# Shell & CLI
+zsh
+git
+fzf
+ripgrep
+fd
+htop
+wget
+unzip
+tmux
+
+# Dev
+neovim
+tree-sitter-cli
+gcc
+make
+go
+nodejs
+npm
+python
+uv
+typst
+lazygit
+lazydocker
+docker
+docker-compose
+claude-code
+
+# Terminal & fonts
+wezterm
+ttf-meslo-nerd
+noto-fonts
+noto-fonts-emoji
+
+# Apps
+firefox
+brave-bin
+thunderbird
+discord
+telegram-desktop
+obsidian
+zotero
+zed
+vlc
+vlc-plugins-all
+proton-vpn-gtk-app

@@ -1,0 +1,43 @@
+# Shell & CLI
+zsh
+git
+fzf
+ripgrep
+fd-find
+htop
+wget
+unzip
+tmux
+
+# Dev
+neovim
+tree-sitter-cli
+gcc
+make
+golang
+nodejs
+npm
+python3
+uv
+moby-engine
+docker-compose
+
+# Terminal & fonts
+google-noto-sans-fonts
+google-noto-serif-fonts
+google-noto-color-emoji-fonts
+
+# Apps
+firefox
+thunderbird
+vlc
+
+# Not in default repos — install manually / via COPR / RPM Fusion / Flatpak:
+#   typst            (cargo / GitHub release)
+#   lazygit          (COPR: atim/lazygit)
+#   lazydocker       (GitHub release)
+#   claude-code      (npm i -g @anthropic-ai/claude-code)
+#   wezterm          (COPR: wezfurlong/wezterm-nightly)
+#   meslo nerd font  (nerdfonts.com)
+#   telegram-desktop (RPM Fusion)
+#   brave, discord, obsidian, zotero, zed, proton-vpn (vendor repos / Flatpak)

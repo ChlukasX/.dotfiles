@@ -176,11 +176,15 @@ install_packages_linux() {
         return
     fi
 
+    # Strip comments (full-line and inline) and blank lines
+    local pkgs
+    pkgs=$(sed -e 's/#.*//' -e 's/[[:space:]]*$//' -e '/^[[:space:]]*$/d' "$pkgfile")
+
     info "Installing packages via $mgr..."
     case "$mgr" in
-        pacman) sudo pacman -S --needed - < "$pkgfile" ;;
-        apt)    xargs sudo apt install -y < "$pkgfile"  ;;
-        dnf)    xargs sudo dnf install -y < "$pkgfile"  ;;
+        pacman) echo "$pkgs" | sudo pacman -S --needed - ;;
+        apt)    sudo apt update && echo "$pkgs" | xargs sudo apt install -y ;;
+        dnf)    echo "$pkgs" | xargs sudo dnf install -y ;;
     esac
 }
 
@@ -201,7 +205,7 @@ install_homebrew() {
 }
 
 install_brew_packages() {
-    local brewfile="$DOTFILES/Brewfile"
+    local brewfile="$DOTFILES/packages/Brewfile"
     if [ -f "$brewfile" ]; then
         info "Installing packages from Brewfile..."
         brew bundle install --file="$brewfile"
