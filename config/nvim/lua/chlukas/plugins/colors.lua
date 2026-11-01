@@ -1,26 +1,5 @@
 return {
     {
-        "ribru17/bamboo.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("bamboo").setup({
-                -- optional configuration here
-            })
-            require("bamboo").load()
-        end,
-    },
-    { "ellisonleao/gruvbox.nvim", 
-        priority = 1000, 
-        config = function()
-            require("gruvbox").setup({
-                -- optional configuration here
-                contrast = "",
-            })
-            require("gruvbox").load()
-        end,
-    },
-    {
         "navarasu/onedark.nvim",
         priority = 1000,
         enable = false,

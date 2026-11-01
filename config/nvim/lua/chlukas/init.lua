@@ -3,4 +3,4 @@ require("chlukas.remap")
 
 require("chlukas.lazy_init")
 
-vim.cmd.colorscheme "onedark"
+-- vim.cmd.colorscheme "onedark"
